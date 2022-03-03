@@ -8,24 +8,24 @@ export const Profile = () => {
   const { user, getAccessTokenSilently } = useAuth0();
   const [reviews, setReviews] = useState();
 
-  const setUser = async () => {
-    try {
-      const response = await fetch(
-        "/api/user/create-user",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json;charset=utf-8",
-          },
-          body: JSON.stringify({ email: user.email, role: "USER" }),
-        }
-      );
-      const jsonResponse = await response.json();
-      console.log(jsonResponse);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const setUser = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       "/api/user/create-user",
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json;charset=utf-8",
+  //         },
+  //         body: JSON.stringify({ email: user.email, role: "USER" }),
+  //       }
+  //     );
+  //     const jsonResponse = await response.json();
+  //     console.log(jsonResponse);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const getReviews = async () => {
     try {
@@ -41,7 +41,7 @@ export const Profile = () => {
 
   useEffect(() => {
     getReviews();
-    setUser();
+    // setUser();
   }, [reviews]);
 
   return (
